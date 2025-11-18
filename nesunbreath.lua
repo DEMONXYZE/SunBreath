@@ -449,6 +449,23 @@ localPlayer.CharacterAdded:Connect(function(newChar)
 end)
 
 print("พร้อมใช้งาน! กดปุ่ม X เพื่อโจมตีเป้าหมายที่อยู่ข้างหน้า 100 ครั้งทันที")
+
+local playerGui = player:WaitForChild("PlayerGui")
+local hud = playerGui:WaitForChild("HUD")
+local moves = hud:WaitForChild("Moves")
+local list = moves:WaitForChild("List")
+local unknowningFire = list:WaitForChild("UnknowningFire")
+
+-- Clone
+local clone = unknowningFire:Clone()
+
+-- เปลี่ยนชื่อและข้อความ
+clone.Name = "Sunbreating"
+clone.Frame.move_name.Text = "Sunbreating"
+clone.Frame.key.Text = "X"
+-- วางในตำแหน่งเดิม
+clone.Parent = list
+
 return {
     ShowNotification = showNotification,
     ClearAll = clearAllNotifications,
